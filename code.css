@@ -1,0 +1,122 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Fons clar */
+    color: #333;
+}
+
+.study-guide-container {
+    max-width: 700px; /* Ample màxim, ajusta si cal */
+    margin: 20px auto; /* Centra el contenidor */
+    padding: 15px;
+    background-color: #fff; /* Fons blanc per al contenidor */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombra subtil */
+}
+
+h1, h2, .intro {
+    text-align: center;
+    color: #0056b3; /* Blau per als títols */
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    color: #555;
+}
+
+.intro {
+     margin-top: 0;
+     margin-bottom: 20px;
+     font-size: 1.1em;
+     color: #666;
+     font-style: italic;
+}
+
+.accordion-item {
+    border: 1px solid #ddd; /* Vora per a cada element */
+    margin-bottom: 10px; /* Espai entre elements */
+    border-radius: 5px;
+    overflow: hidden; /* Important per a l'animació de desplegament */
+}
+
+.accordion-header {
+    background-color: #eef; /* Blau molt clar */
+    color: #333;
+    cursor: pointer; /* Canvia el cursor a mà per indicar que és clicable */
+    padding: 15px;
+    width: 100%;
+    border: none; /* Elimina la vora per defecte del botó */
+    text-align: left;
+    outline: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease; /* Animació al passar el ratolí per sobre */
+    display: flex; /* Utilitza flexbox per alinear el text i la icona */
+    justify-content: space-between; /* Posa la icona a la dreta */
+    align-items: center; /* Centra verticalment text i icona */
+    font-weight: bold;
+}
+
+.accordion-header:hover {
+    background-color: #dde; /* Blau una mica més fosc al passar el ratolí */
+}
+
+/* Estil per a la icona +/- */
+.accordion-header::after {
+     content: '+'; /* Icona de més per defecte (tancat) */
+     font-weight: bold;
+     margin-left: 10px;
+     transition: transform 0.3s ease; /* Animació per a la icona */
+     font-size: 1.2em;
+     color: #0056b3;
+}
+
+.accordion-header.active::after {
+     content: '-'; /* Icona de menys quan està actiu (obert) */
+     /* No cal rotar si uses +/- */
+}
+
+.accordion-content {
+    background-color: #f9f9f9; /* Fons molt clar per al contingut */
+    padding: 0 15px; /* Padding horitzontal */
+    max-height: 0; /* Inicialment amagat */
+    transition: max-height 0.3s ease-out; /* Animació de desplegament/reculliment */
+    overflow: hidden; /* Amaga el contingut que sobrepassa el max-height */
+}
+
+ .accordion-content p {
+     padding: 15px 0; /* Padding vertical dins del contingut */
+     margin: 0; /* Elimina els marges per defecte del paràgraf */
+     color: #555; /* Color de text del contingut */
+ }
+
+/* Estil per quan el contingut està obert */
+.accordion-content.show {
+    max-height: 1000px; /* Un valor gran per assegurar-se que tot el contingut es mostra. Ajusta si tens respostes MOLT llargues. */
+}
+
+/* Ajust responsiu bàsic */
+@media (max-width: 600px) {
+    .study-guide-container {
+        margin: 10px;
+        padding: 10px;
+    }
+    .accordion-header {
+        padding: 10px;
+    }
+     .accordion-content p {
+        padding: 10px 0;
+    }
+    h1 { font-size: 1.5em; }
+    h2 { font-size: 1.2em; }
+    .intro { font-size: 1em; }
+}
